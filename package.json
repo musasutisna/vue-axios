@@ -1,0 +1,28 @@
+{
+  "name": "@musasutisna/vue-axios",
+  "version": "1.0.0",
+  "description": "make easier developed axios with vue",
+  "main": "index.js",
+  "author": {
+    "name": "Musa Sutisna",
+    "email": "musa.sutisna@gmail.com",
+    "url": "https://github.com/musasutisna"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/musasutisna/vue-axios#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/musasutisna/vue-axios.git"
+  },
+  "keywords": [
+    "mikro-cms"
+  ],
+  "bugs": {
+    "url": "https://github.com/musasutisna/vue-axios/issues"
+  },
+  "dependencies": {
+    "axios": "^1.7.5",
+    "pinia": "^2.2.2",
+    "vue": "^3.4.38"
+  }
+}
