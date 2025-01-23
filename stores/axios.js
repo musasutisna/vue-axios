@@ -41,7 +41,7 @@ export default function (api, defaultConfig = null) {
 
       if (showMsg) {
         if (result.response) {
-          message.toTggleSuccess(url, {
+          message.toToggleSuccess(url, {
             display: true,
             close: true,
             icon: 'success',
@@ -87,7 +87,7 @@ export default function (api, defaultConfig = null) {
 
       if (showMsg) {
         if (result.response) {
-          message.toTggleSuccess(url, {
+          message.toToggleSuccess(url, {
             display: true,
             close: true,
             icon: 'success',
@@ -133,7 +133,7 @@ export default function (api, defaultConfig = null) {
 
       if (showMsg) {
         if (result.response) {
-          message.toTggleSuccess(url, {
+          message.toToggleSuccess(url, {
             display: true,
             close: true,
             icon: 'success',
@@ -179,7 +179,7 @@ export default function (api, defaultConfig = null) {
 
       if (showMsg) {
         if (result.response) {
-          message.toTggleSuccess(url, {
+          message.toToggleSuccess(url, {
             display: true,
             close: true,
             icon: 'success',
