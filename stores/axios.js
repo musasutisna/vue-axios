@@ -31,17 +31,30 @@ export default function (api, defaultConfig = null) {
    * @param   boolean
    * @return  mixed
    */
-  async function apiGET(url, config = null, showErr = true) {
+  async function apiGET(url, config = null, showMsg = true) {
     let result = null
 
     config = combineWithDefaultConfig(config)
 
     try {
       result = await api.get(url, config)
+
+      if (showMsg) {
+        if (result.response) {
+          message.toTggleSuccess(url, {
+            display: true,
+            close: true,
+            icon: 'success',
+            text: result.response.data?.message || err.message,
+            prefix: '<p>',
+            suffix: '</p>'
+          })
+        }
+      }
     } catch (err) {
       result = false
 
-      if (showErr) {
+      if (showMsg) {
         if (err.response) {
           message.toToggleWarning(url, {
             display: true,
@@ -66,15 +79,28 @@ export default function (api, defaultConfig = null) {
    * @param   boolean
    * @return  mixed
    */
-  async function apiPOST(url, data = null, config = null, showErr = true) {
+  async function apiPOST(url, data = null, config = null, showMsg = true) {
     let result = null
 
     try {
       result = await api.post(url, data, config)
+
+      if (showMsg) {
+        if (result.response) {
+          message.toTggleSuccess(url, {
+            display: true,
+            close: true,
+            icon: 'success',
+            text: result.response.data?.message || err.message,
+            prefix: '<p>',
+            suffix: '</p>'
+          })
+        }
+      }
     } catch (err) {
       result = false
 
-      if (showErr) {
+      if (showMsg) {
         if (err.response) {
           message.toToggleWarning(url, {
             display: true,
@@ -99,15 +125,28 @@ export default function (api, defaultConfig = null) {
    * @param   boolean
    * @return  mixed
    */
-  async function apiPUT(url, data = null, config = null, showErr = true) {
+  async function apiPUT(url, data = null, config = null, showMsg = true) {
     let result = null
 
     try {
       result = await api.put(url, data, config)
+
+      if (showMsg) {
+        if (result.response) {
+          message.toTggleSuccess(url, {
+            display: true,
+            close: true,
+            icon: 'success',
+            text: result.response.data?.message || err.message,
+            prefix: '<p>',
+            suffix: '</p>'
+          })
+        }
+      }
     } catch (err) {
       result = false
 
-      if (showErr) {
+      if (showMsg) {
         if (err.response) {
           message.toToggleWarning(url, {
             display: true,
@@ -132,15 +171,28 @@ export default function (api, defaultConfig = null) {
    * @param   boolean
    * @return  mixed
    */
-  async function apiDELETE(url, config = null, showErr = true) {
+  async function apiDELETE(url, config = null, showMsg = true) {
     let result = null
 
     try {
       result = await api.delete(url, config)
+
+      if (showMsg) {
+        if (result.response) {
+          message.toTggleSuccess(url, {
+            display: true,
+            close: true,
+            icon: 'success',
+            text: result.response.data?.message || err.message,
+            prefix: '<p>',
+            suffix: '</p>'
+          })
+        }
+      }
     } catch (err) {
       result = false
 
-      if (showErr) {
+      if (showMsg) {
         if (err.response) {
           message.toToggleWarning(url, {
             display: true,

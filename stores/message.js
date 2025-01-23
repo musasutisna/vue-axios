@@ -3,6 +3,7 @@ import { defineStore } from 'pinia'
 
 export const useMessageStore = defineStore('vueaxios_message', () => {
   const loading = ref({})
+  const success = ref({})
   const warning = ref({})
 
   /**
@@ -23,6 +24,41 @@ export const useMessageStore = defineStore('vueaxios_message', () => {
       display,
       text: `${prefix}${text}${suffix}`,
       icon
+    }
+  }
+
+  /**
+   * Toggle success message.
+   *
+   * @param   string
+   * @param   object
+   * @return  void
+   */
+  function toToggleSuccess(id, {
+    display = true,
+    close = null,
+    icon = null,
+    text = null,
+    prefix = '',
+    suffix = ''
+  } = {}) {
+    success.value[id] = {
+      display,
+      close,
+      icon,
+      text: null
+    }
+
+    if (text instanceof Object) {
+      let newText = ''
+
+      for (var msg of text) {
+        newText += msg.msg ? `${prefix}${msg.msg || ''}${suffix}` : ''
+      }
+
+      success.value[id].text = newText
+    } else {
+      success.value[id].text = `${prefix}${text}${suffix}`
     }
   }
 
@@ -63,8 +99,10 @@ export const useMessageStore = defineStore('vueaxios_message', () => {
 
   return {
     loading,
+    success,
     warning,
     toToggleLoading,
+    toToggleSuccess,
     toToggleWarning
   }
 })

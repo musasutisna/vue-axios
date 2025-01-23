@@ -6,7 +6,7 @@ VueAxios is based on **Vue 3** with composition style codes and compatible with 
 
 Lets install vue-axios with npm
 
-```
+```bash
 npm install --save @musasutisna/vue-axios
 ```
 
@@ -21,6 +21,8 @@ npm install --save @musasutisna/vue-axios
 | apiPUT | async | Sends a PUT request. |
 | apiDELETE | async | Sends a DELETE request. |
 
+<br/>
+
 ```js
 const config = axios.create({
   baseURL: 'http://baseurl',
@@ -29,12 +31,12 @@ const config = axios.create({
   }
 })
 
-const myAPI Axios(config)
+const myAPI = Axios(config)
 ```
 
 ## Stores
 
-- Message, managing messages process and result from requests.
+- useMessageStore, managing messages process and result from requests.
 
 | Property | Type | Description |
 |:--|:--|:--|
@@ -44,6 +46,12 @@ const myAPI Axios(config)
 | loading[].icon | String | A unique icon for the loading message. |
 | loading[].prefix | String | Prefix text for the loading message. |
 | loading[].suffix | String | Suffix text for the loading message. |
+| success | Object | A collection of success messages. |
+| success[].display | Boolean | Indicates whether the success message is displayed. |
+| success[].text | String | The text of the success message. |
+| success[].icon | String | A unique icon for the success message. |
+| success[].prefix | String | Prefix text for the success message. |
+| success[].suffix | String | Suffix text for the success message. |
 | warning | Object | A collection of warning messages. |
 | warning[].display | Boolean | Indicates whether the warning message is displayed. |
 | warning[].text | String | The text of the warning message. |
@@ -51,10 +59,15 @@ const myAPI Axios(config)
 | warning[].prefix | String | Prefix text for the warning message. |
 | warning[].suffix | String | Suffix text for the warning message. |
 
+<br/>
+
 | Method | Type | Description |
 |:--|:--|:--|
 | toToggleLoading | function | Toggles the display of loading messages or adds a new one. |
+| toToggleSuccess | function | Toggles the display of success messages or adds a new one. |
 | toToggleWarning | function | Toggles the display of warning messages or adds a new one. |
+
+<br/>
 
 ```js
 // add a new loading message
@@ -65,6 +78,18 @@ message.toToggleLoading(
 
 // to hide loading message has been added
 message.toToggleLoading(
+  '/id',
+  { display: false }
+)
+
+// add a new success message
+message.toToggleSuccess(
+  '/id',
+  { text: 'this a text success' }
+)
+
+// to hide success message has been added
+message.toToggleSuccess(
   '/id',
   { display: false }
 )
