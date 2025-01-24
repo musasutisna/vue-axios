@@ -40,12 +40,12 @@ export default function (api, defaultConfig = null) {
       result = await api.get(url, config)
 
       if (showMsg) {
-        if (result.response) {
+        if (result.data) {
           message.toToggleSuccess(url, {
             display: true,
             close: true,
             icon: 'success',
-            text: result.response.data?.message || err.message,
+            text: result.data?.message || err.message,
             prefix: '<p>',
             suffix: '</p>'
           })
@@ -86,12 +86,12 @@ export default function (api, defaultConfig = null) {
       result = await api.post(url, data, config)
 
       if (showMsg) {
-        if (result.response) {
+        if (result.data) {
           message.toToggleSuccess(url, {
             display: true,
             close: true,
             icon: 'success',
-            text: result.response.data?.message || err.message,
+            text: result.data?.message || err.message,
             prefix: '<p>',
             suffix: '</p>'
           })
@@ -132,12 +132,12 @@ export default function (api, defaultConfig = null) {
       result = await api.put(url, data, config)
 
       if (showMsg) {
-        if (result.response) {
+        if (result.data) {
           message.toToggleSuccess(url, {
             display: true,
             close: true,
             icon: 'success',
-            text: result.response.data?.message || err.message,
+            text: result.data?.message || err.message,
             prefix: '<p>',
             suffix: '</p>'
           })
@@ -178,12 +178,12 @@ export default function (api, defaultConfig = null) {
       result = await api.delete(url, config)
 
       if (showMsg) {
-        if (result.response) {
+        if (result.data) {
           message.toToggleSuccess(url, {
             display: true,
             close: true,
             icon: 'success',
-            text: result.response.data?.message || err.message,
+            text: result.data?.message || err.message,
             prefix: '<p>',
             suffix: '</p>'
           })
