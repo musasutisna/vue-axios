@@ -45,7 +45,7 @@ export default function (api, defaultConfig = null) {
             display: true,
             close: true,
             icon: 'success',
-            text: result.data?.message || err.message,
+            text: result.data.message,
             prefix: '<p>',
             suffix: '</p>'
           })
@@ -91,7 +91,7 @@ export default function (api, defaultConfig = null) {
             display: true,
             close: true,
             icon: 'success',
-            text: result.data?.message || err.message,
+            text: result.data.message,
             prefix: '<p>',
             suffix: '</p>'
           })
@@ -137,7 +137,7 @@ export default function (api, defaultConfig = null) {
             display: true,
             close: true,
             icon: 'success',
-            text: result.data?.message || err.message,
+            text: result.data.message,
             prefix: '<p>',
             suffix: '</p>'
           })
@@ -183,7 +183,7 @@ export default function (api, defaultConfig = null) {
             display: true,
             close: true,
             icon: 'success',
-            text: result.data?.message || err.message,
+            text: result.data.message,
             prefix: '<p>',
             suffix: '</p>'
           })
