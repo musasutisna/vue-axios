@@ -7,7 +7,7 @@ VueAxios is based on **Vue 3** with composition style codes and compatible with 
 Lets install vue-axios with npm
 
 ```bash
-npm install --save @musasutisna/vue-axios
+npm install --save axios pinia vue @musasutisna/vue-axios
 ```
 
 ## Libraries
