@@ -24,6 +24,34 @@ export default function (api, defaultConfig = null) {
   }
 
   /**
+   * Update default config.
+   *
+   * @param   object
+   * @return  void
+   */
+  function updateDefaultConfig(config) {
+    if (defaultConfig === null) {
+      defaultConfig = {}
+    }
+
+    defaultConfig = {
+      ...defaultConfig,
+      ...config
+    }
+  }
+
+
+  /**
+   * Renew default config.
+   *
+   * @param   mixed
+   * @return  void
+   */
+  function renewDefaultConfig(config) {
+    defaultConfig = config
+  }
+
+  /**
    * Request with GET method.
    *
    * @param   string
@@ -210,6 +238,8 @@ export default function (api, defaultConfig = null) {
   }
 
   return {
+    updateDefaultConfig,
+    renewDefaultConfig,
     apiGET,
     apiPOST,
     apiPUT,

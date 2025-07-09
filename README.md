@@ -16,6 +16,8 @@ npm install --save axios pinia vue @musasutisna/vue-axios
 
 | Method | Type | Description |
 |:--|:--|:--|
+| updateDefaultConfig | function | Update default config with contact with current config. |
+| renewDefaultConfig | function | Renew default config with new config. |
 | apiGET | async | Sends a GET request. |
 | apiPOST | async | Sends a POST request. |
 | apiPUT | async | Sends a PUT request. |
