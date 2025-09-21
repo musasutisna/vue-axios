@@ -10,9 +10,9 @@ Lets install vue-axios with npm
 npm install --save axios pinia vue @musasutisna/vue-axios
 ```
 
-## Libraries
+## Composables
 
-- Axios, manage Axios configurations efficiently.
+- useAxios, manage Axios configurations efficiently.
 
 | Method | Type | Description |
 |:--|:--|:--|
@@ -26,14 +26,12 @@ npm install --save axios pinia vue @musasutisna/vue-axios
 <br/>
 
 ```js
-const config = axios.create({
+const myAxios = useAxios({
   baseURL: 'http://baseurl',
   headers: {
     'Authorization': `Bearer token`
   }
 })
-
-const myAPI = Axios(config)
 ```
 
 ## Stores
