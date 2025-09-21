@@ -1,22 +1,24 @@
-import { useMessageStore } from './message'
+import axios from 'axios'
+import { useMessageStore } from '../stores/message'
 
-export default function (api, defaultConfig = null) {
+export function useAxios(initialConfig, defaultConfig = null) {
   const message = useMessageStore()
+  const api = axios.create(initialConfig)
 
   /**
-   * Combine with default config.
+   * Return combined with default config.
    *
-   * @param   object
-   * @return  object
+   * @params {Object} config - axios configuration will be combined with default config.
+   * @returns {Object}
    */
   function combineWithDefaultConfig(config) {
     var newConfig = {}
 
-    if (defaultConfig instanceof Object) {
+    if (defaultConfig !== null && defaultConfig instanceof Object) {
       newConfig = { ...defaultConfig }
     }
 
-    if (config instanceof Object) {
+    if (config !== null && config instanceof Object) {
       newConfig = { ...newConfig, ...config }
     }
 
@@ -24,10 +26,10 @@ export default function (api, defaultConfig = null) {
   }
 
   /**
-   * Update default config.
+   * Update default config with modified current default config.
    *
-   * @param   object
-   * @return  void
+   * @params {Object} config - axios configuration will be store as default config.
+   * @returns {void}
    */
   function updateDefaultConfig(config) {
     if (defaultConfig === null) {
@@ -42,10 +44,10 @@ export default function (api, defaultConfig = null) {
 
 
   /**
-   * Renew default config.
+   * Renew default config with override current default config.
    *
-   * @param   mixed
-   * @return  void
+   * @params {mixed} config - axios configuration will be set as new default config.
+   * @returns {void}
    */
   function renewDefaultConfig(config) {
     defaultConfig = config
@@ -54,10 +56,10 @@ export default function (api, defaultConfig = null) {
   /**
    * Request with GET method.
    *
-   * @param   string
-   * @param   object
-   * @param   boolean
-   * @return  mixed
+   * @params {string} url - target url will be retrive.
+   * @params {Object} config - temporary axios config will be use on request.
+   * @params {boolean} showMsg - state to store message from response.
+   * @returns {mixed}
    */
   async function apiGET(url, config = null, showMsg = true) {
     let result = null
@@ -102,10 +104,11 @@ export default function (api, defaultConfig = null) {
   /**
    * Request with POST method.
    *
-   * @param   string
-   * @param   object
-   * @param   boolean
-   * @return  mixed
+   * @params {string} url - target url will be requested.
+   * @params {Object} data - the data will be pass to request.
+   * @params {Object} config - temporary axios config will be use on request.
+   * @params {boolean} showMsg - state to store message from response.
+   * @returns {mixed}
    */
   async function apiPOST(url, data = null, config = null, showMsg = true) {
     let result = null
@@ -148,10 +151,11 @@ export default function (api, defaultConfig = null) {
   /**
    * Request with PUT method.
    *
-   * @param   string
-   * @param   object
-   * @param   boolean
-   * @return  mixed
+   * @params {string} url - target url will be requested.
+   * @params {Object} data - the data will be pass to request.
+   * @params {Object} config - temporary axios config will be use on request.
+   * @params {boolean} showMsg - state to store message from response.
+   * @returns {mixed}
    */
   async function apiPUT(url, data = null, config = null, showMsg = true) {
     let result = null
@@ -194,10 +198,10 @@ export default function (api, defaultConfig = null) {
   /**
    * Request with DELETE method.
    *
-   * @param   string
-   * @param   object
-   * @param   boolean
-   * @return  mixed
+   * @params {string} url - target url will be requested.
+   * @params {Object} config - temporary axios config will be use on request.
+   * @params {boolean} showMsg - state to store message from response.
+   * @returns {mixed}
    */
   async function apiDELETE(url, config = null, showMsg = true) {
     let result = null

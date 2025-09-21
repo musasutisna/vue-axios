@@ -9,9 +9,14 @@ export const useMessageStore = defineStore('vueaxios_message', () => {
   /**
    * Toggle loading message.
    *
-   * @param   string
-   * @param   object
-   * @return  void
+   * @params {string} id - the unique id of message.
+   * @params {Object} options - the message configuration.
+   * @params {boolean} [options.display=true] - the state of message.
+   * @params {string} [options.text=null] - the text of message will be show.
+   * @params {Object} [options.icon=null] - the icon of message.
+   * @params {string} [options.prefix=''] - prefix for message text.
+   * @params {string} [options.suffix=''] - suffix for message text.
+   * @returns {void}
    */
   function toToggleLoading(id, {
     display = true,
@@ -30,9 +35,14 @@ export const useMessageStore = defineStore('vueaxios_message', () => {
   /**
    * Toggle success message.
    *
-   * @param   string
-   * @param   object
-   * @return  void
+   * @params {string} id - the unique id of message.
+   * @params {Object} options - the message configuration.
+   * @params {boolean} [options.display=true] - the state of message.
+   * @params {string} [options.text=null] - the text of message will be show.
+   * @params {Object} [options.icon=null] - the icon of message.
+   * @params {string} [options.prefix=''] - prefix for message text.
+   * @params {string} [options.suffix=''] - suffix for message text.
+   * @returns {void}
    */
   function toToggleSuccess(id, {
     display = true,
@@ -65,9 +75,14 @@ export const useMessageStore = defineStore('vueaxios_message', () => {
   /**
    * Toggle warning message.
    *
-   * @param   string
-   * @param   object
-   * @return  void
+   * @params {string} id - the unique id of message.
+   * @params {Object} options - the message configuration.
+   * @params {boolean} [options.display=true] - the state of message.
+   * @params {string} [options.text=null] - the text of message will be show.
+   * @params {Object} [options.icon=null] - the icon of message.
+   * @params {string} [options.prefix=''] - prefix for message text.
+   * @params {string} [options.suffix=''] - suffix for message text.
+   * @returns {void}
    */
   function toToggleWarning(id, {
     display = true,
